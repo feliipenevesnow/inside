@@ -98,7 +98,7 @@
 
                 <div class="hero-section">
                     <div class="hero-slider owl-carousel owl-theme">
-                        <div class="hero-single" style="background-image: url(assets/img/slider/slider-munil.jpg)">
+                        <div class="hero-single" style="background-image: url(assets/img/slider/slider-everton.png)">
                             <div class="container">
                                 <div class="row align-items-center">
                                     <div class="col-md-7 col-lg-7">
