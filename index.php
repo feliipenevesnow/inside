@@ -31,7 +31,7 @@
 
             <header class="header">
                 <div class="main-navigation">
-                    <nav class="navbar navbar-expand-lg">
+                    <nav class="navbar navbar-expand-lg" style="position: absolute; top: 0">
                         <div class="container-fluid px-lg-5">
                             <a class="navbar-brand" href="index.html">
                                 <img src="images/logo_inside.png" alt="logo">
@@ -105,13 +105,13 @@
                                         <div class="hero-content">
                                             <h6 class="hero-sub-title wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".25s">Inicie sua jornada conosco</h6>
                                             <h1 class="hero-title wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".50s">
-                                                <span>Venha ser INSIDE</span><br />você também
+                                                <span>Venha ser INSIDE 111</span><br />você também
                                             </h1>
                                             <p class="wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".75s">
                                                 Venha fazer parte da equipe de Muay Thai mais organizada do Brasil
                                             </p>
                                             <div class="hero-btn wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
-                                                <a href="unidades" class="theme-btn">Unidades<i class="far fa-arrow-right"></i></a>
+                                                <a href="unidades" class="theme-btn">Localização<i class="far fa-arrow-right"></i></a>
                                                 <a href="sobre-nos" class="theme-btn theme-btn2">Sobre nós<i class="far fa-arrow-right"></i></a>
                                             </div>
                                         </div>
@@ -183,7 +183,7 @@
                             <div class="col-lg-6">
                                 <div class="about-left">
                                     <div class="about-img">
-                                        <img src="images/munil.jpg" alt="">
+                                        <img src="images/everton.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -272,89 +272,6 @@
 
 
 
-                <div class="team-area py-120">
-                    <div class="container-fluid px-5">
-                        <div class="row">
-                            <div class="col-lg-5 mx-auto">
-                                <div class="site-heading text-center">
-                                    <span class="site-title-tagline">Time</span>
-                                    <h2 class="site-title">Atletas Profissionais</h2>
-                                    <div class="heading-divider"></div>
-                                    <p>
-                                        Conheça um pouco dos nossos atletas profissionais
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 col-lg-3">
-                                <div class="team-item">
-                                    <img src="assets/img/team/jean.jpg" alt="thumb">
-                                    <div class="team-social">
-                                        <a href="https://www.facebook.com/jean.matsumoto.56" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.instagram.com/jeanmatsumoto/" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        <h6>Siga</h6>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="team-bio">
-                                            <h5><a href="#">Jean Matsumoto</a></h5>
-                                            <span>MMA</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="team-item">
-                                    <img src="assets/img/team/pamela.jpg" alt="thumb">
-                                    <div class="team-social">
-                                        <a href="https://www.facebook.com/pamela.mara.735" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.instagram.com/pamelamaramma/" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        <h6>Siga</h6>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="team-bio">
-                                            <h5><a href="#">Pamela Mara</a></h5>
-                                            <span>MMA e Kickboxing</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="team-item">
-                                    <img src="assets/img/team/buzika.jpg" alt="thumb">
-                                    <div class="team-social">
-                                        <a href="https://www.facebook.com/AndersonBuzika" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.instagram.com/thekingbuzika/" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        <h6>Siga</h6>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="team-bio">
-                                            <h5><a href="#">Anderson Buzika</a></h5>
-                                            <span>Muay Thai, Kickboxing e MMA</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="team-item">
-                                    <img src="assets/img/team/taveira.jpg" alt="thumb">
-                                    <div class="team-social">
-                                        <a href="https://www.facebook.com/thiagotaveiraminotouro" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.instagram.com/thiagotaveiramma/" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        <h6>Siga</h6>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="team-bio">
-                                            <h5><a href="#">Thiago Taveira</a></h5>
-                                            <span>MMA e Muay Thai</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
 
 
@@ -363,7 +280,7 @@
                         <div class="row">
                             <div class="col-lg-6 mx-auto">
                                 <div class="site-heading text-center">
-                                    <span class="site-title-tagline">Inside</span>
+                                    <span class="site-title-tagline">Inside 111</span>
                                     <h2 class="site-title">Galeria de Fotos</h2>
                                     <div class="heading-divider"></div>
                                     <p>
@@ -439,6 +356,34 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+                
+                <div class="gallery-area ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 mx-auto">
+                                <div class="site-heading text-center">
+                                    <span class="site-title-tagline">Inside 111</span>
+                                    <h2 class="site-title">Localização</h2>
+                                    <div class="heading-divider"></div>
+                                    <p>
+                                        Conheça um pouco da nossa história através dos registros da nossa galeria
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row popup-gallery" data-masonry='{"percentPosition": true }'>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.1853198235062!2d-52.11459449163672!3d-21.773087539945696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9491990d8ad170af%3A0xb9f6ed0b80bca0a2!2sACADEMIA%20DE%20MUAY%20THAI!5e0!3m2!1spt-BR!2sbr!4v1710510173567!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="text-center mt-5">
+                            <a href="#" class="theme-btn">Veja mais <i class="far fa-sync"></i></a>
+                        </div>
+                    </div>
+                </div>
+
 
 
 
