@@ -26,7 +26,6 @@ imprimirHeader();
             <tbody>
                 <?php
                 $pagamentos = buscarTodosPagamentos();
-                print_r($pagamentos);
                 if ($pagamentos) {
                     foreach ($pagamentos as $pagamento) {
 
@@ -91,7 +90,7 @@ imprimirHeader();
                         </tr>
                     <?php }
                 } else {
-                    echo '<tr><td colspan="4">Nenhum pagamento encontrado.</td></tr>';
+                    echo '<tr><td colspan="4">Nenhuma foto encontrada.</td></tr>';
                 } ?>
 
 

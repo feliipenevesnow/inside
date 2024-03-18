@@ -60,16 +60,13 @@
                                             <li><a class="dropdown-item" href="#">Branding</a></li>
                                         </ul>
                                     </li>
-                                    <!--<li class="nav-item"><a class="nav-link" href="#">Loja</a></li>-->
-                                    <li class="nav-item"><a id="blog" class="nav-link" href="#">Blog</a></li>
+                                 <li class="nav-item"><a id="blog" class="nav-link" href="#">Blog</a></li>
                                     <li class="nav-item"><a id="contato" class="nav-link" href="#">Contato</a></li>
                                 </ul>
                                 <div class="header-nav-right">
-                                    <!--<div class="header-nav-search">
-                                        <a href="#" class="search-box-outer"><i class="far fa-search"></i></a>
-                                    </div>-->
+
                                     <div class="header-btn">
-                                        <a href="dashboard/pagamento/pagamento.php" class="theme-btn">Entrar<i class="far fa-arrow-right"></i></a>
+                                        <a href="login.php" class="theme-btn">Entrar<i class="far fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>

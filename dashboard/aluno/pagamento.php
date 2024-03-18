@@ -12,29 +12,25 @@ imprimirHeader();
 
 <div class="container">
     <h1>Alunos</h1>
-
-    <a href="cadastrar-editar-visualizar.php?cadastrar=true" class="btn btn-dark mt-3 mb-3">Cadastrar</a>
-
     <div class="search-wrapper">
         <input class="form-control" type="text" id="searchInput" placeholder="Buscar Aluno por Nome">
     </div>
 
 
-    <div class="table-responsive" style="margin-bottom: 100px">
-        <table id="tabelaAlunos" class="table table-red">
-            <thead>
-                <tr>
-                    <th>Aluno</th>
-                    <th>Nome</th>
-                    <th>Pagamento Atual</th>
-                    <th>Status</th>
-                    <th>Mensalidades Pagas</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
+
+    <table id="tabelaAlunos" class="table table-red">
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Mensalidades Pagas</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
 </div>
 
 

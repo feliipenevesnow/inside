@@ -4054,3 +4054,8 @@ body.rtl-mode .price-wrapper {
 .home-3 .blog-title a:hover {
   color: #da1d25;
 }
+
+
+.linha-pendente {
+  background-color: red;
+}
