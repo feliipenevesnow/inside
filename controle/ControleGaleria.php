@@ -34,7 +34,7 @@ class ControleGaleria {
     }
 
     public function buscarTodos() {
-        $sql = "SELECT * FROM galeria";
+        $sql = "SELECT * FROM galeria ORDER BY codigo DESC";
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

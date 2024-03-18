@@ -31,7 +31,6 @@ include "servico/GaleriaService.php";
 </head>
 
 <body>
-
     <form name="aspnetForm" method="post" action="./" id="aspnetForm">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
             value="M15Atkg2MfiMMJYg2xFGMJJwlrU9q9kpNElh18ATQeow/hQNEv5TMUNFuETMjDnAgaIWEJYsGIXFEUbFx3Lw1KytbjsK7hRV6AEhoRcs4jw=" />
@@ -104,12 +103,6 @@ include "servico/GaleriaService.php";
         </div>
 
         <main class="main">
-
-
-
-
-
-
             <div class="hero-section">
                 <div class="hero-slider owl-carousel owl-theme">
                     <div class="hero-single" style="background-image: url(assets/img/slider/slider-everton.png)">
@@ -130,60 +123,6 @@ include "servico/GaleriaService.php";
                                         <div class="hero-btn wow animate__animated animate__fadeInUp"
                                             data-wow-duration="1s" data-wow-delay="1s">
                                             <a href="unidades" class="theme-btn">Localização<i
-                                                    class="far fa-arrow-right"></i></a>
-                                            <a href="sobre-nos" class="theme-btn theme-btn2">Sobre nós<i
-                                                    class="far fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-single" style="background-image: url(assets/img/slider/slider-jean.jpg)">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-7 col-lg-7">
-                                    <div class="hero-content">
-                                        <h6 class="hero-sub-title wow animate__animated animate__fadeInUp"
-                                            data-wow-duration="1s" data-wow-delay=".25s">Inicie sua jornada conosco</h6>
-                                        <h1 class="hero-title wow animate__animated animate__fadeInUp"
-                                            data-wow-duration="1s" data-wow-delay=".50s">
-                                            <span>Venha ser INSIDE</span><br />você também
-                                        </h1>
-                                        <p class="wow animate__animated animate__fadeInUp" data-wow-duration="1s"
-                                            data-wow-delay=".75s">
-                                            Venha fazer parte da equipe de Muay Thai mais organizada do Brasil
-                                        </p>
-                                        <div class="hero-btn wow animate__animated animate__fadeInUp"
-                                            data-wow-duration="1s" data-wow-delay="1s">
-                                            <a href="unidades" class="theme-btn">Unidades<i
-                                                    class="far fa-arrow-right"></i></a>
-                                            <a href="sobre-nos" class="theme-btn theme-btn2">Sobre nós<i
-                                                    class="far fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-single" style="background-image: url(assets/img/slider/slider-esquadrao.jpg)">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-7 col-lg-7">
-                                    <div class="hero-content">
-                                        <h6 class="hero-sub-title wow animate__animated animate__fadeInUp"
-                                            data-wow-duration="1s" data-wow-delay=".25s">Inicie sua jornada conosco</h6>
-                                        <h1 class="hero-title wow animate__animated animate__fadeInUp"
-                                            data-wow-duration="1s" data-wow-delay=".50s">
-                                            <span>Venha ser INSIDE</span><br />você também
-                                        </h1>
-                                        <p class="wow animate__animated animate__fadeInUp" data-wow-duration="1s"
-                                            data-wow-delay=".75s">
-                                            Venha fazer parte da equipe de Muay Thai mais organizada do Brasil
-                                        </p>
-                                        <div class="hero-btn wow animate__animated animate__fadeInUp"
-                                            data-wow-duration="1s" data-wow-delay="1s">
-                                            <a href="unidades" class="theme-btn">Unidades<i
                                                     class="far fa-arrow-right"></i></a>
                                             <a href="sobre-nos" class="theme-btn theme-btn2">Sobre nós<i
                                                     class="far fa-arrow-right"></i></a>
@@ -338,7 +277,8 @@ include "servico/GaleriaService.php";
                                     ?>
                                     <div class="col-md-4">
                                         <div class="gallery-item">
-                                            <img width="350px" height="350px" src="images/galeria/<?php echo $foto['foto'] ?>" alt="">
+                                            <img width="350px" height="350px" src="images/galeria/<?php echo $foto['foto'] ?>"
+                                                alt="">
                                             <a class="popup-img" href="images/galeria/<?php echo $foto['foto'] ?>"><i
                                                     class="far fa-plus"></i></a>
                                             <div class="gallery-info">
@@ -353,8 +293,6 @@ include "servico/GaleriaService.php";
                         }
                         ?>
 
-
-
                     </div>
                     <div class="text-center mt-5">
                         <a href="#" class="theme-btn">Veja mais <i class="far fa-sync"></i></a>
@@ -366,7 +304,7 @@ include "servico/GaleriaService.php";
 
 
 
-            <div class="gallery-area ">
+            <div class="gallery-area mb-5">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 mx-auto">
@@ -386,29 +324,17 @@ include "servico/GaleriaService.php";
                             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <div class="text-center mt-5">
-                        <a href="#" class="theme-btn">Veja mais <i class="far fa-sync"></i></a>
-                    </div>
                 </div>
             </div>
 
 
 
-
-
-            <div class="partner-area pt-70 pb-70">
-                <div class="container">
-                    <div class="partner-wrapper partner-slider owl-carousel owl-theme">
-                        <img src="assets/img/partner/back.jpg" alt="Back Sports">
-                        <img src="assets/img/partner/burn.jpg" alt="Burn Fightwear">
-                        <img src="assets/img/partner/jugui.jpg" alt="Jugui Artigos Esportivos">
-                        <img src="assets/img/partner/nitrofit.jpg" alt="Nitrofit Vest">
-                    </div>
-                </div>
-            </div>
 
 
         </main>
+
+
+
 
         <footer class="footer-area">
             <div class="footer-widget">
