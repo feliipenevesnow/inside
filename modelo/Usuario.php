@@ -13,6 +13,7 @@ class Usuario
     private $ativo;
     private $nivelAcesso;
     private $senha;
+    private $contato;
 
     public function __construct($codigo = null, $nome = null, $endereco = null, $cidade = null, $cpf = null, $foto = null, $estado = null, $ativo = null, $nivelAcesso = null)
     {
@@ -42,6 +43,15 @@ class Usuario
     public function getSenha(): string
     {
         return $this->senha;
+    }
+
+    public function setContato(string $contato)
+    {
+        $this->contato = $contato;
+    }
+    public function getContato(): string
+    {
+        return $this->contato;
     }
 
     public function setSenha(string $senha)

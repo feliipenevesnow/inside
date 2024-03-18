@@ -45,7 +45,8 @@
                             <div class="form-group mb-5">
                                 <label for="senha">Senha</label>
                                 <input type="password" name="senha" class="form-control" id="senha">
-                                <?php         
+                                <?php
+                                         
                                 if (isset ($_GET["erro"])) {
                                     ?>
                                     <p style="color: red">CPF ou Senha incorreto(s)!</p>

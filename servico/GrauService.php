@@ -1,62 +1,33 @@
 <?php
-
-include_once '../controle/ControleGraduacao.php';
-
+@include_once '../../controle/ControleGrau.php';
+@include_once '../controle/ControleGrau.php';
+@include_once '../modelo/Grau.php';
 // Define o serviço a ser executado
 if (!isset($_GET['servico'])) {
     $_GET['servico'] = 0;
 }
 
-// Cria um objeto de controle de graduação
-$controleGraduacao = new ControleGraduacao();
+// Cria um objeto de controle de grau
+$controleGrau = new ControleGrau();
 
-// Trata cada serviço SEM RETORNO
-switch ($_GET['servico']) {
-    case 0:
-        // Redireciona para a página de graduação
-        header('Location: ../dashboard/graduacao.php');
-        break;
-    case 1:
-        // Inserir uma nova graduação
-        $graduacao = new Graduacao();
-        $graduacao->setDescricao($_POST['descricao']);
-        $graduacao->setImagem($_POST['imagem']);
-        $graduacao->setAtivo($_POST['ativo']);
-        $controleGraduacao->inserir($graduacao);
-        break;
-    case 2:
-        // Deletar uma graduação
-        $graduacao = new Graduacao();
-        $graduacao->setCodigo($_GET['codigo']);
-        $controleGraduacao->deletar($graduacao);
-        break;
-    case 3:
-        // Editar uma graduação
-        $graduacao = new Graduacao();
-        $graduacao->setCodigo($_POST['codigo']);
-        $graduacao->setDescricao($_POST['descricao']);
-        $graduacao->setImagem($_POST['imagem']);
-        $graduacao->setAtivo($_POST['ativo']);
-        $controleGraduacao->editar($graduacao);
-        break;
+
+// Função para inserir um novo grau
+
+
+ function buscarPorAluno(int $alunoId) {
+    $controleGrau = new ControleGrau();
+    print_r($alunoId);
+    return $controleGrau->buscarPorAluno($alunoId);
 }
 
-// Trata cada serviço COM RETORNO
 
-function buscarTodasGraduacoes(): array {
-    $controleGraduacao = new ControleGraduacao();
-    $graduacoes = $controleGraduacao->buscarTodos();
-    return $graduacoes;
+// Função para editar um grau
+function editarGrau($aluno, $graduacao) {
+    $controleGrau = new ControleGrau();
+    $grau = new Grau();
+    $grau->setAluno($aluno);
+    $grau->setGraduacao($graduacao);
+    $controleGrau->editar($grau);
 }
 
-function buscarGraduacaoPorId($id): array {
-    $controleGraduacao = new ControleGraduacao();
-    $graduacao = $controleGraduacao->buscarPorId($id);
-    return $graduacao;
-}
-
-function buscarGraduacoesAtivas(): array {
-    $controleGraduacao = new ControleGraduacao();
-    $graduacoesAtivas = $controleGraduacao->buscarAtivas();
-    return $graduacoesAtivas;
-}
+?>

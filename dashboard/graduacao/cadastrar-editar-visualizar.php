@@ -1,7 +1,7 @@
 <?php
 require_once '../fragmentos/fragmentos.php';
-require_once '../../servico/GaleriaService.php';
-require_once '../../modelo/Galeria.php';
+require_once '../../servico/GraduacaoService.php';
+require_once '../../modelo/Graduacao.php';
 
 $opcao = 0;
 
@@ -17,7 +17,13 @@ imprimirHeader();
     <h1>
         Cadastrar
     </h1>
-    <form action="../../servico/GaleriaService.php?servico=1" method="post" enctype="multipart/form-data">
+    <form action="../../servico/GraduacaoService.php?servico=1" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class=" mb-3">
+                <label for="nome" class="form-label">Descrição</label>
+                <input type="text" class="form-control" required id="nome" name="descricao">
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-6 mb-3">
@@ -26,10 +32,10 @@ imprimirHeader();
                 <?php } else { ?>
                     <label for="foto" style="color:red" required class="form-label"><b>*Foto (É necessário)</b></label>
                 <?php } ?>
-                <input required type="file" class="form-control" id="foto" name="foto" <?php echo $opcao == 3 ? 'disabled' : '' ?>>
+                <input type="file" class="form-control" id="foto" name="foto" <?php echo $opcao == 3 ? 'disabled' : '' ?>>
             </div>
             <div class="col-md-6 mb-3">
-                <img id="preview" src='../../images/galeria/img.avif' alt="your image"
+                <img id="preview" src='../../images/graduacao/img.avif' alt="your image"
                     style="max-width: 200px; max-height: 200px;" />
             </div>
         </div>
@@ -37,7 +43,7 @@ imprimirHeader();
         <button type="submit" class="btn btn-dark " <?php echo $opcao == 3 ? 'hidden' : '' ?>>
             Cadastrar
         </button>
-        <a href="galeria.php" type="submit" class="btn btn-dark ">
+        <a href="graduacao.php" type="submit" class="btn btn-dark ">
             Cancelar
         </a>
     </form>

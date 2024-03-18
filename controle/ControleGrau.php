@@ -1,6 +1,8 @@
 <?php
 
-include_once 'Conexao.php';
+@include_once '../../controle/Conexao.php';
+
+include_once '../controle/Conexao.php';
 
 class ControleGrau {
 
@@ -11,30 +13,20 @@ class ControleGrau {
     }
 
     public function inserir(Grau $grau) {
-        $sql = "INSERT INTO grau (aluno, graduacao, certificado) VALUES (:aluno, :graduacao, :certificado)";
+        $sql = "INSERT INTO grau (aluno, graduacao) VALUES (:aluno, :graduacao)";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(":aluno", $grau->getAluno());
         $stmt->bindValue(":graduacao", $grau->getGraduacao());
-        $stmt->bindValue(":certificado", $grau->getCertificado());
         $stmt->execute();
     }
 
     public function deletar(Grau $grau) {
-        $sql = "DELETE FROM grau WHERE aluno = :aluno AND graduacao = :graduacao";
+        $sql = "DELETE FROM grau WHERE aluno = :aluno";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(":aluno", $grau->getAluno());
-        $stmt->bindValue(":graduacao", $grau->getGraduacao());
         $stmt->execute();
     }
 
-    public function editar(Grau $grau) {
-        $sql = "UPDATE grau SET certificado = :certificado WHERE aluno = :aluno AND graduacao = :graduacao";
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(":aluno", $grau->getAluno());
-        $stmt->bindValue(":graduacao", $grau->getGraduacao());
-        $stmt->bindValue(":certificado", $grau->getCertificado());
-        $stmt->execute();
-    }
 
     public function buscarTodos() {
         $sql = "SELECT * FROM grau";

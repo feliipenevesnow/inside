@@ -3,7 +3,10 @@
 @include_once '../../controle/ControleUsuario.php';
 
 @include_once '../controle/ControleUsuario.php';
+@include_once '../controle/ControleGrau.php';
+
 @include_once '../modelo/Usuario.php';
+@include_once '../modelo/Grau.php';
 
 session_start();
 
@@ -39,8 +42,8 @@ switch ($_GET['servico']) {
     $usuario->setEstado($_POST['estado']);
     $usuario->setAtivo(true);
     $usuario->setNivelAcesso($_POST['nivel_acesso']);
+    $usuario->setContato($_POST['contato']);
 
-    // Check if file was uploaded
     if (isset ($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
       $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
       $filename = substr(md5(uniqid(rand(), true)), 0, 50) . '.' . $extension;
@@ -56,6 +59,12 @@ switch ($_GET['servico']) {
     }
 
     $controleUsuario->inserir($usuario);
+
+    $id = $controleUsuario->ultimoCadastroId();
+
+    if (isset ($_POST['graduacao']) && $_POST['graduacao'] != 0) {
+      inserirNovoGrau($id, $_POST['graduacao']);
+    }
 
     header("Location: ../dashboard/aluno/aluno.php");
     break;
@@ -80,6 +89,7 @@ switch ($_GET['servico']) {
     $usuario->setEstado($_POST['estado']);
     $usuario->setAtivo(true);
     $usuario->setNivelAcesso($_POST['nivel_acesso']);
+    $usuario->setContato($_POST['contato']);
 
     if (isset ($_POST['senha'])) {
       if ($_POST['senha'] == $_POST['senha_confirma']) {
@@ -108,10 +118,18 @@ switch ($_GET['servico']) {
       $usuario->setFoto($foto_antiga);
     }
 
-    $controleUsuario->editar($usuario, true);
+    if (isset ($_POST['graduacao']) && $_POST['graduacao'] != 0) {
+      deletarGrau($_GET['codigo']);
+      inserirNovoGrau($_GET['codigo'], $_POST['graduacao']);
+    } else {
+      deletarGrau($_GET['codigo']);
+    }
+
     if (!isset ($_POST['senha'])) {
+      $controleUsuario->editar($usuario, false);
       header("Location: ../dashboard/aluno/aluno.php");
     } else {
+      $controleUsuario->editar($usuario, true);
       header("Location: ../dashboard/aluno/perfil.php");
     }
     break;
@@ -134,6 +152,24 @@ function buscarTodosUsuarios(): array
   return $usuarios;
 }
 
+function inserirNovoGrau($aluno, $graduacao)
+{
+  $controleGrau = new ControleGrau();
+  $grau = new Grau();
+  $grau->setAluno($aluno);
+  $grau->setGraduacao($graduacao);
+  print_r($grau);
+  $controleGrau->inserir($grau);
+}
+
+function deletarGrau($aluno)
+{
+  $controleGrau = new ControleGrau();
+  $grau = new Grau();
+  $grau->setAluno($aluno);
+  $controleGrau->deletar($grau);
+}
+
 
 function buscarUsuarioPorId($id): Usuario
 {
@@ -154,6 +190,7 @@ function buscarUsuarioPorId($id): Usuario
   $usuario->setEstado($resultado['estado']);
   $usuario->setAtivo($resultado['ativo']);
   $usuario->setNivelAcesso($resultado['nivel_acesso']);
+  $usuario->setContato($resultado['contato']);
 
   return $usuario;
 }
@@ -187,6 +224,8 @@ function retornaListUsuario($resultado): array
     $usuario->setEstado($usuarioData['estado']);
     $usuario->setAtivo($usuarioData['ativo']);
     $usuario->setNivelAcesso($usuarioData['nivel_acesso']);
+    $usuario->setContato($usuarioData['contato']);
+    $usuario->setSenha($usuarioData['senha']);
     return $usuario;
   }, $resultado);
   return $usuarios;

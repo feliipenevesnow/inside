@@ -9,6 +9,8 @@ imprimirHeader();
 
 <div class="container">
     <h1>Graduações</h1>
+    
+    <a href="cadastrar-editar-visualizar.php?cadastrar=true" class="btn btn-dark mt-3 mb-3">Cadastrar</a>
 
     <div class="table-responsive" style="margin-bottom: 100px">
     <table class="table table-red">
@@ -42,7 +44,7 @@ imprimirHeader();
                     </td>
 
                     <td>
-                    <a style="margin: 10px" class="btn btn-dark" href="#"><i class="fa-solid fa-trash"></i></a>
+                    <a style="margin: 10px" class="btn btn-dark" href="../../servico/GraduacaoService.php?codigo=<?php echo $graduacao->getCodigo(); ?>&servico=2"><i class="fa-solid fa-trash"></i></a>
                     </td>
 
 

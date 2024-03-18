@@ -17,7 +17,7 @@ class ControleUsuario
     public function inserir(Usuario $usuario)
     {
         print_r($usuario);
-        $sql = "INSERT INTO usuario (nome, endereco, cidade, cpf, foto, estado, ativo, nivel_acesso) VALUES (:nome, :endereco, :cidade, :cpf, :foto, :estado, :ativo, :nivel_acesso)";
+        $sql = "INSERT INTO usuario (nome, endereco, cidade, cpf, foto, estado, ativo, nivel_acesso, contato, senha) VALUES (:nome, :endereco, :cidade, :cpf, :foto, :estado, :ativo, :nivel_acesso, :contato, :senha)";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(":nome", $usuario->getNome());
         $stmt->bindValue(":endereco", $usuario->getEndereco());
@@ -27,6 +27,8 @@ class ControleUsuario
         $stmt->bindValue(":estado", $usuario->getEstado());
         $stmt->bindValue(":ativo", $usuario->getAtivo());
         $stmt->bindValue(":nivel_acesso", $usuario->getNivelAcesso());
+        $stmt->bindValue(":contato", $usuario->getContato());
+        $stmt->bindValue(":senha", password_hash("123", PASSWORD_DEFAULT));
         $stmt->execute();
     }
 
@@ -48,12 +50,29 @@ class ControleUsuario
             $stmt->bindValue(":codigo", $usuario->getCodigo());
             $stmt->execute();
         } else {
+            $usuario = $this->buscarPorId($usuario->getCodigo());
+            if ($usuario['foto'] != 'user.png') {
+                unlink('../images/usuario/' . $usuario['foto']);
+            }
+
+
             $sql = "DELETE FROM usuario WHERE codigo = :codigo";
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(":codigo", $usuario->getCodigo());
+            $stmt->bindValue(":codigo", $usuario['codigo']);
             $stmt->execute();
         }
     }
+
+    public function ultimoCadastroId()
+{
+    $sql = "SELECT MAX(codigo) AS ultimo_id FROM usuario";
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->execute();
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $resultado['ultimo_id'];
+}
+
 
     public function reativar(Usuario $usuario)
     {
@@ -66,10 +85,12 @@ class ControleUsuario
 
     public function editar(Usuario $usuario, $senha = false)
     {
-        if(!$senha){
-            $sql = "UPDATE usuario SET nome = :nome, endereco = :endereco, cidade = :cidade, cpf = :cpf, foto = :foto, estado = :estado, ativo = :ativo, nivel_acesso = :nivel_acesso WHERE codigo = :codigo";
-        }else{
-            $sql = "UPDATE usuario SET nome = :nome, endereco = :endereco, cidade = :cidade, cpf = :cpf, foto = :foto, estado = :estado, ativo = :ativo, nivel_acesso = :nivel_acesso, senha = :senha WHERE codigo = :codigo";
+        if (!$senha) {
+            $user = $this->buscarPorId($usuario->getCodigo());
+            $password = $user['senha'];
+            $sql = "UPDATE usuario SET nome = :nome, endereco = :endereco, cidade = :cidade, cpf = :cpf, foto = :foto, estado = :estado, ativo = :ativo, nivel_acesso = :nivel_acesso, contato = :contato, senha = :senha WHERE codigo = :codigo";
+        } else {
+            $sql = "UPDATE usuario SET nome = :nome, endereco = :endereco, cidade = :cidade, cpf = :cpf, foto = :foto, estado = :estado, ativo = :ativo, nivel_acesso = :nivel_acesso, senha = :senha, contato = :contato WHERE codigo = :codigo";
         }
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(":codigo", $usuario->getCodigo());
@@ -81,8 +102,11 @@ class ControleUsuario
         $stmt->bindValue(":estado", $usuario->getEstado());
         $stmt->bindValue(":ativo", $usuario->getAtivo());
         $stmt->bindValue(":nivel_acesso", $usuario->getNivelAcesso());
-        if($senha){
-            $stmt->bindValue(":senha",  password_hash($usuario->getSenha(), PASSWORD_DEFAULT));
+        $stmt->bindValue(":contato", $usuario->getContato());
+        if ($senha) {
+            $stmt->bindValue(":senha", password_hash($usuario->getSenha(), PASSWORD_DEFAULT));
+        }else{
+            $stmt->bindValue(":senha", $password);
         }
         $stmt->execute();
     }
@@ -124,7 +148,7 @@ class ControleUsuario
 
         if ($usuario) {
             if (password_verify($senha, $usuario['senha'])) {
-                if (!isset($_SESSION)) {
+                if (!isset ($_SESSION)) {
                     session_start();
                 }
                 print_r($usuario);

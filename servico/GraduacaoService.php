@@ -1,6 +1,9 @@
 <?php
 
-include_once '../../controle/ControleGraduacao.php';
+@include_once '../../controle/ControleGraduacao.php';
+
+@include_once '../controle/ControleGraduacao.php';
+@include_once '../modelo/Graduacao.php';
 
 // Define o serviço a ser executado
 if (!isset ($_GET['servico'])) {
@@ -18,26 +21,43 @@ switch ($_GET['servico']) {
     case 1:
         // Inserir uma nova graduação
         $graduacao = new Graduacao();
-        $graduacao->setCodigo($_POST['codigo']);
-        $graduacao->setDescricao($_POST['nome']);
-        $graduacao->setAtivo($_POST['instituicao']);
-        $graduacao->setImagem($_POST['ano_conclusao']);
+        $graduacao->setDescricao($_POST['descricao']);
+        $graduacao->setAtivo(true);
+        
+
+        if (isset ($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
+            $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+            $filename = substr(md5(uniqid(rand(), true)), 0, 50) . '.' . $extension;
+            $destination = '../images/graduacao/' . $filename;
+      
+      
+            if (move_uploaded_file($_FILES['foto']['tmp_name'], $destination)) {
+              $graduacao->setImagem($filename);
+            }
+      
+          } else {
+            header("Location: ../dashboard/graduacao/cadastrar-editar-visualizar.php?erro=true");
+          }
+
         $controleGraduacao->inserir($graduacao);
+        header("Location: ../dashboard/graduacao/graduacao.php");
         break;
     case 2:
         // Deletar uma graduação
         $graduacao = new Graduacao();
         $graduacao->setCodigo($_GET['codigo']);
         $controleGraduacao->deletar($graduacao);
+        header("Location: ../dashboard/graduacao/graduacao.php");
         break;
     case 3:
         // Editar uma graduação
         $graduacao = new Graduacao();
-        $graduacao->setCodigo($_POST['codigo']);
-        $graduacao->setDescricao($_POST['nome']);
-        $graduacao->setAtivo($_POST['instituicao']);
-        $graduacao->setImagem($_POST['ano_conclusao']);
+        $graduacao->setCodigo($_GET['codigo']);
+        $graduacao->setDescricao($_POST['descricao']);
+        $graduacao->setAtivo(true);
+        $graduacao->setImagem($_POST['foto']);
         $controleGraduacao->editar($graduacao);
+        header("Location: ../dashboard/graduacao/graduacao.php");
         break;
 }
 

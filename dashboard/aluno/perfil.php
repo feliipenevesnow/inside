@@ -26,17 +26,17 @@ imprimirHeader();
             <div class="col-md-6 mb-3">
                 <label for="cpf" class="form-label">CPF</label>
                 <input type="text" class="form-control" id="cpf" name="cpf"
-                    value="<?php echo $opcao == 2 || $opcao == 3 ? $usuario->getCpf() : '' ?>" <?php echo $opcao == 3 ? 'disabled' : '' ?>>
+                    value="<?php echo $opcao == 2 || $opcao == 3 ? $usuario->getCpf() : '' ?>" disabled>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-4 mb-3">
                 <label for="cidade" class="form-label">Cidade</label>
                 <input type="text" class="form-control" id="cidade" name="cidade"
                     value="<?php echo $opcao == 2 || $opcao == 3 ? $usuario->getCidade() : 'Presidente Epitácio' ?>"
                     <?php echo $opcao == 3 ? 'disabled' : '' ?>>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-4 mb-3">
                 <label for="estado" class="form-label">Estado</label>
                 <select class="form-control" id="estado" name="estado" <?php echo $opcao == 3 ? 'disabled' : '' ?>>
                     <?php
@@ -76,6 +76,11 @@ imprimirHeader();
                     }
                     ?>
                 </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="contato" class="form-label">Contato</label>
+                <input type="text" class="form-control" id="contato" name="contato"
+                    value="<?php echo $opcao == 2 || $opcao == 3 ? $usuario->getContato() : '' ?>" disabled>
             </div>
         </div>
         <div class="mb-3">
@@ -134,6 +139,7 @@ imprimirHeader();
 <script>
     $(document).ready(function () {
         $('#cpf').mask('000.000.000-00');
+        $('#contato').mask('(00) 00000-0000')
         $("#foto").change(function () {
             readURL(this);
         });
